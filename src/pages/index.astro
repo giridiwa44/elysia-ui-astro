@@ -1,0 +1,350 @@
+---
+import FrontLayout from "../layouts/FrontLayout.astro";
+import "../styles/globals.css";
+---
+
+<FrontLayout>
+  <section
+    id="hero-landing"
+    class="relative h-[60vh] flex flex-col items-center justify-center w-full dark:bg-gray-900 border-b border-b-gray-100 dark:border-b-gray-800 overflow-hidden"
+  >
+    <div
+      class="relative max-w-5xl text-center xl:leading-loose leading-3 dark:bg-gray-900"
+    >
+      <!-- 🌸 Sakura di belakang tulisan -->
+      <div
+        class="absolute inset-0 flex justify-center items-center pointer-events-none animate-sakuraFloat"
+        style="z-index:0; opacity:0.15; filter:blur(0px);"
+      >
+        <svg
+          viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          aria-hidden="true"
+          role="img"
+          class="iconify iconify--emojione-monotone w-[500px] h-[500px]"
+          preserveAspectRatio="xMidYMid meet"
+          fill="#f4a9d9"
+          ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
+            ><path
+              d="M53.744 34.683c5.742-2.92 8.152-6.675 8.256-10.362c-1.869.424-3.844-.51-4.719-2.389c-.875-1.883-.357-4.083 1.121-5.357c-2.838-2.196-7.148-2.53-12.893.392c-2.068 1.052-3.964 2.744-5.644 4.675c.923-2.419 1.546-4.938 1.546-7.339c0-6.68-2.172-10.59-5.295-12.299c-.454 1.944-2.118 3.392-4.116 3.392c-2 0-3.666-1.45-4.119-3.396c-3.125 1.711-5.297 5.618-5.297 12.302c0 2.4.623 4.919 1.545 7.338c-1.678-1.931-3.574-3.622-5.641-4.674c-5.744-2.922-10.055-2.588-12.891-.392c1.477 1.274 1.996 3.475 1.121 5.357C5.84 23.811 3.867 24.744 2 24.32c.104 3.688 2.514 7.442 8.254 10.362c3.394 1.726 7.797 2.012 11.754 1.769c-3.403 1.795-6.862 4.221-8.908 7.314c-3.635 5.495-3.973 10.003-2.332 13.271c1.43-1.333 3.588-1.534 5.232-.343c1.643 1.191 2.223 3.373 1.539 5.241c3.498.454 7.412-1.467 11.045-6.959c2.064-3.121 3.015-7.412 3.415-11.408c.401 3.996 1.351 8.287 3.415 11.408c3.633 5.492 7.547 7.413 11.045 6.959c-.684-1.868-.104-4.05 1.541-5.241s3.801-.99 5.232.343c1.641-3.269 1.303-7.776-2.332-13.271c-2.047-3.094-5.506-5.52-8.909-7.314c3.956.243 8.36-.043 11.753-1.768m-5.166 7.638c3.189 4.82 3.486 8.774 2.047 11.643c-1.256-1.171-3.148-1.347-4.59-.302s-1.951 2.96-1.352 4.599c-3.068.398-6.502-1.288-9.688-6.105c-1.812-2.739-2.646-6.504-2.996-10.01c-.352 3.506-1.186 7.271-2.996 10.01c-3.188 4.817-6.621 6.504-9.689 6.105c.6-1.639.092-3.554-1.352-4.599c-1.441-1.045-3.334-.869-4.588.302c-1.439-2.868-1.143-6.822 2.045-11.643c1.59-2.405 4.153-4.347 6.794-5.854c.23.541.723.939 1.327.987c.879.072 1.646-.613 1.717-1.532c.002-.026-.003-.051-.002-.077l3.98-1.811c.203.302.454.563.735.784l-1.856 4.116c-.023 0-.047-.005-.07-.004c-.881.044-1.561.824-1.518 1.745c.039.922.785 1.633 1.668 1.59c.881-.044 1.561-.824 1.518-1.745a1.7 1.7 0 0 0-.364-.978l1.855-4.111c.257.064.521.108.796.108c.238 0 .47-.026.694-.076l1.729 4.164a1.7 1.7 0 0 0-.391.963c-.07.919.588 1.722 1.467 1.793c.879.072 1.646-.614 1.713-1.534c.068-.92-.586-1.722-1.465-1.793c-.024-.002-.048.002-.072.002l-1.732-4.169c.289-.213.539-.476.751-.771l3.935 1.943c0 .025-.005.049-.004.073c.039.923.785 1.633 1.666 1.592c.727-.037 1.307-.574 1.469-1.274c2.65 1.511 5.224 3.457 6.819 5.869m-6.772-6.372c-.058-.905-.793-1.6-1.663-1.558a1.556 1.556 0 0 0-.932.38l-3.932-1.941c.063-.268.104-.542.104-.829c0-.25-.026-.493-.073-.729l3.978-1.809c.25.229.565.383.922.412c.879.069 1.646-.616 1.715-1.536c.07-.919-.588-1.722-1.467-1.794c-.879-.073-1.646.615-1.713 1.535c-.002.024.002.048.002.072l-3.985 1.813a3.501 3.501 0 0 0-.736-.785l1.856-4.114c.024 0 .048.005.072.004c.881-.044 1.561-.824 1.521-1.745c-.043-.922-.789-1.633-1.668-1.59c-.881.044-1.561.824-1.521 1.745c.018.372.153.706.362.974l-1.856 4.115A3.206 3.206 0 0 0 32 28.46c-.238 0-.471.027-.696.077l-1.729-4.162c.219-.262.366-.593.395-.966c.066-.919-.59-1.722-1.469-1.793s-1.645.614-1.715 1.534c-.068.92.59 1.722 1.469 1.795c.023.002.046-.002.069-.002l1.731 4.168a3.51 3.51 0 0 0-.75.769l-3.934-1.942c0-.025.005-.05.004-.075c-.041-.922-.787-1.633-1.668-1.588c-.881.042-1.561.822-1.518 1.744c.039.923.785 1.633 1.666 1.589c.356-.018.677-.16.933-.379l3.931 1.94a3.68 3.68 0 0 0-.104.832c0 .249.025.491.072.726l-3.978 1.811a1.542 1.542 0 0 0-.921-.41c-.879-.072-1.646.616-1.715 1.535c-.007.1-.002.196.007.293c-3.153.09-6.505-.254-9.155-1.602c-5.037-2.562-7.152-5.855-7.242-9.09c1.637.371 3.369-.447 4.139-2.097c.768-1.651.311-3.581-.982-4.699c2.486-1.926 6.268-2.22 11.307.344c1.813.923 3.477 2.407 4.949 4.101c-.809-2.123-1.355-4.332-1.355-6.438c0-5.862 1.904-9.29 4.648-10.791c.396 1.707 1.857 2.979 3.611 2.979s3.213-1.271 3.611-2.978c2.74 1.5 4.646 4.93 4.646 10.789c0 2.105-.546 4.314-1.354 6.436c1.472-1.693 3.135-3.177 4.948-4.099c5.039-2.563 8.818-2.27 11.309-.344c-1.297 1.118-1.75 3.048-.982 4.699c.768 1.649 2.498 2.468 4.139 2.097c-.09 3.234-2.205 6.528-7.242 9.09c-2.683 1.366-6.083 1.7-9.269 1.596"
+              fill="#f4a9d9"></path></g
+          ></svg
+        >
+      </div>
+
+      <h1
+        class="md:text-5xl text-3xl dark:text-white font-semibold relative z-10"
+      >
+        Beautiful UI components built with
+        <span class="inline-flex items-center gap-2">
+          <span class="text-[#38bdf8] font-semibold">Tailwind CSS</span> and
+        </span>
+        <span class="inline-flex items-center gap-2">
+          <span class="font-semibold">Alpine JS.</span>
+        </span>
+      </h1>
+
+      <p
+        id="hero-text"
+        class="mt-4 xl:text-lg text-[16px] leading-relaxed dark:text-white text-gray-600 relative z-10"
+      >
+        An open-source collection of copy-and-paste components for quickly
+        building application UIs.
+      </p>
+    </div>
+
+    <div class="flex items-center justify-center mt-3 relative z-10">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 py-2 px-2 border border-dashed hover:border-elysia-400 border-gray-300 cursor-pointer"
+      >
+        Getting Started
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-right w-4 h-4"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+  <section
+    id="our-landing"
+    class="my-7 h-[70vh] w-full dark:bg-gray-900  dark:border-b-gray-800 overflow-hidden mb-2"
+  >
+    <div class="container mx-auto xl:max-w-7xl px-4 lg:px-8 pb-8 lg:pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 xl:gap-8 gap-4">
+        <!-- CARD 1 -->
+        <div
+          class="bg-gray-200/20 text-gray-900 py-5 px-3 border border-gray-200 rounded-md dark:border-gray-900 min-h-[250px] flex flex-col justify-between hover:border-dashed hover:border-elysia-500 hover:cursor-pointer"
+        >
+          <div>
+            <div class="flex justify-end items-center mb-3">
+              <div
+                class="py-2 px-3 rounded-full bg-gray-200/20 border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+              >
+                <p class="text-sm dark:text-white">Build In Version 3</p>
+              </div>
+            </div>
+            <h1 class="font-semibold text-3xl mb-2 dark:text-gray-100">
+              Alpine JS
+            </h1>
+            <p class="text-left mb-3 dark:text-gray-100">
+              A powerful Javascript Library for customizing the behavior of your
+              HTML tags, like modern Jquery
+            </p>
+          </div>
+          <a
+            href="https://alpinejs.dev/start-here"
+            class="inline-flex items-center justify-center gap-2 py-2 px-2 border border-dashed hover:border-elysia-400 border-gray-300 cursor-pointer dark:text-gray-100"
+          >
+            Visit Alpine Website
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+            >
+              <path d="M13 5H19V11"></path><path d="M19 5L5 19"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="bg-gray-200/20 text-gray-900 py-5 px-3 border border-gray-200 rounded-md dark:border-gray-900 min-h-[250px] flex flex-col justify-between hover:border-dashed hover:border-elysia-500 hover:cursor-pointer"
+        >
+          <div>
+            <div class="flex justify-end items-center mb-3">
+              <div
+                class="py-2 px-3 rounded-full bg-gray-200/20 border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+              >
+                <p class="text-sm dark:text-white">Build In Version 4</p>
+              </div>
+            </div>
+            <h1 class="font-semibold text-3xl mb-2 dark:text-gray-100">
+              Tailwind CSS
+            </h1>
+            <p class="text-left mb-3 dark:text-gray-100">
+              A utility-first framework, packed with classes to quickly build
+              modern websites without ever leaving your HTML.
+            </p>
+          </div>
+          <a
+            href="https://tailwindcss.com/"
+            class="inline-flex items-center justify-center gap-2 py-2 px-2 border border-dashed hover:border-elysia-400 border-gray-300 cursor-pointer dark:text-gray-100 text-center"
+          >
+            Visit TailwindCSS Website
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+            >
+              <path d="M13 5H19V11"></path><path d="M19 5L5 19"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="bg-gray-200/20 text-gray-900 py-5 px-3 border border-gray-200 rounded-md dark:border-gray-900 min-h-[250px] flex flex-col justify-between hover:border-dashed hover:border-elysia-500 hover:cursor-pointer"
+        >
+          <div>
+            <div class="flex justify-end items-center mb-3">
+              <div
+                class="py-2 px-3 rounded-full bg-gray-200/20 border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+              >
+                <p class="text-sm dark:text-white">Support Feature</p>
+              </div>
+            </div>
+            <h1 class="font-semibold text-3xl mb-2 dark:text-gray-100">
+              Support Dark Mode
+            </h1>
+            <p class="text-left mb-3 dark:text-gray-100">
+              All Alpine components support dark mode, making your app look
+              great in a variety of lighting environments, and reducing eye
+              strain.
+            </p>
+          </div>
+        </div>
+        <!-- CARD 4 -->
+        <div
+          class="bg-gray-200/20 text-gray-900 py-5 px-3 border border-gray-200 rounded-md dark:border-gray-900 min-h-[250px] flex flex-col justify-between hover:border-dashed hover:border-elysia-500 hover:cursor-pointer"
+        >
+          <div>
+            <div class="flex justify-end items-center mb-3">
+              <div
+                class="py-2 px-3 rounded-full bg-gray-200/20 border border-gray-200 dark:border-gray-800 dark:bg-gray-800"
+              >
+                <p class="text-sm dark:text-white">Support Feature</p>
+              </div>
+            </div>
+            <h1 class="font-semibold text-3xl mb-2 dark:text-gray-100">
+              Responsive Component
+            </h1>
+            <p class="text-left mb-3 dark:text-gray-100">
+              All Alphine JS components are built with responsiveness in mind
+              across all devices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer
+    class="relative flex-none border-t border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-100 overflow-hidden"
+  >
+    <div
+      class="container mx-auto xl:max-w-7xl py-16 lg:py-32 px-4 lg:px-8 relative z-10"
+    >
+      <div class="grid grid-cols-2 gap-12 md:grid-cols-3 md:gap-6 lg:gap-10">
+        <div class="space-y-6">
+          <h4
+            class="font-medium tracking-wider text-gray-400 uppercase dark:text-gray-500 text-sm"
+          >
+            Elysia UI
+          </h4>
+          <nav class="flex flex-col items-start gap-3 text-sm">
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">Introduction</a
+            >
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">Getting Started</a
+            >
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">Components</a
+            >
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">License</a
+            >
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">Privacy Policy</a
+            >
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-400"
+              href="/">Term Of Service</a
+            >
+          </nav>
+        </div>
+        <div class="space-y-6">
+          <h4
+            class="font-medium tracking-wider text-gray-400 uppercase dark:text-gray-500 text-sm"
+          >
+            More Project
+          </h4>
+          <nav class="flex flex-col items-start gap-3 text-sm">
+            <a
+              class="font-medium text-gray-600 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-50"
+              href="#">Coming Soon</a
+            >
+          </nav>
+        </div>
+        <div class="col-span-2 space-y-6 md:col-span-1">
+          <h4
+            class="text-xs font-medium tracking-wider text-gray-400 uppercase dark:text-gray-500"
+          >
+            More Info ?
+          </h4>
+          <div class="space-y-4">
+            <p
+              class="text-sm leading-relaxed text-gray-700 dark:text-gray-400"
+            >
+              Subscribe to our elysia ui newsletter and we will notify you about
+              all the new Alpine components as they are made available.
+            </p>
+            <div class="relative" id="subscribe">
+              <form class="space-y-3">
+                <div class="relative flex gap-1.5">
+                  <div class="relative grow">
+                    <input
+                      class="block w-full rounded-lg border border-gray-200 placeholder:text-gray-500 focus:border-primary-500 focus:ring-1 focus:ring-elysia-400 dark:border-gray-700 dark:bg-gray-900/10 dark:focus:border-gray-500 px-2.5 py-2 text-sm leading-5 absolute inset-0 z-2 outline-none"
+                      type="text"
+                      name="ui-color"
+                      tabindex="-1"
+                      value=""
+                      placeholder="Your E-mail"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    class="group inline-flex items-center justify-center gap-2 rounded-lg border border-elysia-300 bg-elysia-300 font-semibold text-elysia-dark hover:border-elysia-hiver hover:bg-elysia-400 hover:text-white focus:ring-gray-500/50 active:border-secondary-700 active:bg-secondary-700 dark:border-secondary-600/50 dark:bg-secondary-500/50 dark:ring-secondary-600/50 dark:hover:border-secondary-600 dark:hover:bg-secondary-600/75 dark:active:border-secondary-600/50 dark:active:bg-secondary-600/50 focus:ring-2 focus:outline-hidden min-w-[1.875rem] px-1.5 py-2 text-sm leading-5 sm:px-2 flex-none"
+                  >
+                    <span class="px-1">Subscribe!</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-10 flex flex-col gap-6 rounded-lg bg-gray-100 p-4 text-center text-sm md:-mx-4 md:flex-row-reverse md:justify-between md:gap-0 md:text-left dark:bg-gray-800/35"
+      >
+        <div
+          class="flex items-center justify-center gap-1 font-semibold text-secondary-500 dark:text-secondary-400"
+        >
+          Crafted With <span>❤</span><span>by</span><a
+            href="/"
+            class="transition font-medium text-gray-700 underline decoration-gray-500/50 underline-offset-2 hover:text-black dark:text-gray-300 dark:decoration-secondary-400/50 dark:hover:text-white"
+            >Elysia UI</a
+          >
+        </div>
+        <div class="text-secondary-700 dark:text-secondary-300">
+          <span class="font-semibold">Giri Diwa Adam</span> © 2025
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-2 pt-10 font-medium">
+        <span class="text-sm">Designed with</span><span
+          ><a href="/" class="group flex items-center gap-1"
+            >❤ Giri Diwa Adam</a
+          ></span
+        >
+      </div>
+    </div>
+  </footer>
+</FrontLayout>
+<style>
+  @keyframes sakuraFloat {
+    0% {
+      transform: rotate(0deg) translateY(0px);
+    }
+    50% {
+      transform: rotate(5deg) translateY(6px);
+    }
+    100% {
+      transform: rotate(0deg) translateY(0px);
+    }
+  }
+  .animate-sakuraFloat {
+    animation: sakuraFloat 10s ease-in-out infinite;
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import DocsLayout from "../../layouts/DocsLayout.astro";
+
+// ✅ Wajib untuk dynamic routes
+export async function getStaticPaths() {
+  const docs = await getCollection("docs");
+  return docs.map((doc: any) => ({
+    params: { slug: doc.slug },
+  }));
+}
+
+// ✅ Ambil parameter dari URL
+const { slug } = Astro.params;
+
+// ✅ Ambil semua dokumen di koleksi `docs`
+const docs = await getCollection("docs");
+
+// ✅ Cari dokumen sesuai slug
+const entry = docs.find((doc: any) => doc.slug === slug);
+
+if (!entry) {
+  throw new Error(`Dokumen "${slug}" tidak ditemukan`);
+}
+
+// ✅ Render konten Markdown-nya
+const { Content } = await entry.render();
+---
+
+<DocsLayout title={entry.data.title}>
+  <article class="prose dark:prose-invert max-w-none">
+    <Content />
+  </article>
+</DocsLayout>
+

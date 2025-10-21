@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme{
+    --color-elysia-50: #fcf3f9;
+    --color-elysia-100: #fbe8f5;
+    --color-elysia-200: #f9d1ec;
+    --color-elysia-300: #f4a9d9;
+    --color-elysia-400: #ed79c1;
+    --color-elysia-500: #e351a7;
+    --color-elysia-600: #d13187;
+    --color-elysia-700: #b5216d;
+    --color-elysia-800: #951f59;
+    --color-elysia-900: #7d1e4d;
+    --color-elysia-950: #4c0b2b;
+
+    --font-sans: 'Inter',sans-serif;
+}
+body{
+    font-family: var(--font-sans);
+}
