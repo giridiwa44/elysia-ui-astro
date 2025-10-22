@@ -2,6 +2,10 @@
 import Navbar from "../components/layout/Navbar.astro";
 import Sidebar from "../components/layout/Sidebar.astro";
 import "../styles/globals.css";
+import { Prism } from '@astrojs/prism'
+import BProgressClient from "../components/BProgressClient.astro";
+export const viewTransition = true;
+
 ---
 
 <!doctype html>
@@ -34,6 +38,7 @@ import "../styles/globals.css";
               <Sidebar />
 			  <div class="max-w-full grow overflow-hidden p-4">
 				<slot />
+        <BProgressClient client:load />
 			  </div>
             </div>
           </div>
@@ -47,5 +52,6 @@ import "../styles/globals.css";
     <script
       src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"
       is:inline></script>
+    <script type="module" src="/src/scripts/bprogress.js" is:inline></script>
   </body>
 </html>

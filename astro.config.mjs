@@ -1,6 +1,8 @@
 // @ts-check
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import remarkPrism from 'remark-prism';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -8,8 +10,12 @@ export default defineConfig({
         plugins:[tailwindcss()]
     },
     markdown: {
-    shikiConfig: {
-      theme: 'dracula',
-    },
+      syntaxHighlight: false,
+      // @ts-ignore
+      remarkPlugins: [remarkPrism],
   },
+  transitions: {
+    name: 'default', // opsional, bisa juga dikosongkan
+    fallback: 'none'
+  }
 });

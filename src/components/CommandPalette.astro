@@ -1,0 +1,226 @@
+<div
+  x-data="searchModal()"
+  x-init="init()"
+  @keydown.window="handleKeydown($event)"
+>
+  <!-- Trigger Button -->
+  <button
+    @click="open = true"
+    class="px-2 py-1 bg-white border border-secondary-500/20 rounded-lg hover:border-elysia-primary flex items-center cursor-pointer dark:bg-secondary-700/50 dark:text-white"
+  >
+    <span class="mr-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-4 h-4"
+      >
+        <path d="m21 21-4.34-4.34"></path>
+        <circle cx="11" cy="11" r="8"></circle>
+      </svg>
+    </span>
+    <span class="text-secondary-900/20 dark:text-white font-display">
+      Quick Search ...
+    </span>
+    <kbd class="ml-2 text-sm">CTRL+K</kbd>
+  </button>
+
+  <!-- Modal teleported ke body -->
+  <template x-teleport="body">
+    <div
+      x-show="open"
+      x-transition.opacity
+      class="fixed inset-0 bg-secondary-800/50 flex items-start justify-center z-[9999] p-4"
+    >
+      <div
+        class="bg-white dark:bg-gray-700 w-full max-w-xl rounded-lg shadow-lg overflow-hidden"
+        @click.outside="open = false"
+      >
+        <!-- Input -->
+        <div class="relative font-display">
+          <span
+            class="absolute inset-y-0 left-3 flex items-center text-gray-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.34-4.34"></path>
+            </svg>
+          </span>
+          <input
+            x-model="query"
+            type="text"
+            placeholder="Search Component ..."
+            class="w-full pl-10 pr-4 py-3 border-b border-gray-200 dark:border-gray-700 outline-none bg-transparent dark:text-white"
+          />
+        </div>
+
+        <!-- Hasil Pencarian -->
+        <div
+          x-show="query && Object.keys(groupedResults()).length"
+          x-ref="resultsContainer"
+          class="max-h-72 overflow-y-auto"
+        >
+          <template
+            x-for="(group, category) in groupedResults()"
+            :key="category"
+          >
+            <div>
+              <!-- Header Kategori -->
+              <div
+                class="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800"
+                x-text="category"
+              >
+              </div>
+
+              <!-- Item -->
+              <ul>
+                <template x-for="(item, idx) in group" :key="item.url">
+                  <li>
+                    <a
+                      :href="item.url"
+                      class="flex items-center gap-3 px-4 py-2 transition-colors duration-150 rounded-md"
+                      :class="flatResults()[selectedIndex]?.url === item.url ? 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-white'"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-book-icon lucide-book w-4 h-4"
+                        ><path
+                          d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"
+                        ></path></svg
+                      >
+                      <span x-text="item.title"></span>
+                    </a>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </template>
+        </div>
+
+        <!-- Pesan jika tidak ada hasil -->
+        <div
+          x-show="query && !Object.keys(groupedResults()).length"
+          class="px-4 py-6 text-center text-gray-500 dark:text-gray-400"
+        >
+          Tidak ada hasil untuk "<strong x-text="query"></strong>"
+        </div>
+
+        <!-- Footer -->
+        <div
+          class="flex justify-between items-center px-4 py-3 text-xs text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800"
+        >
+          <span>
+            Press <kbd class="px-1 py-0.5 border border-gray-200 rounded"
+              >ESC</kbd
+            > to close
+          </span>
+          <span>Use <kbd>↑</kbd> / <kbd>↓</kbd></span>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<script is:inline>
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("searchModal", () => ({
+      open: false,
+      query: "",
+      selectedIndex: -1,
+      resultsContainer: null,
+
+      items: [
+        { title: "Introduction", url: "/docs/introduction", category: "Docs" },
+        {
+          title: "Get Started",
+          url: "/docs/getting-started",
+          category: "Docs",
+        },
+      ],
+
+      init() {
+        this.resultsContainer = this.$refs.resultsContainer;
+      },
+
+      groupedResults() {
+        const result = {};
+        this.items
+          .filter((item) =>
+            item.title.toLowerCase().includes(this.query.toLowerCase())
+          )
+          .forEach((item) => {
+            if (!result[item.category]) result[item.category] = [];
+            result[item.category].push(item);
+          });
+        return result;
+      },
+
+      flatResults() {
+        return Object.values(this.groupedResults()).flat();
+      },
+
+      handleKeydown(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          this.open = !this.open;
+          this.selectedIndex = -1;
+        }
+
+        if (e.key === "Escape") {
+          this.open = false;
+          this.selectedIndex = -1;
+        }
+
+        if (this.open && this.flatResults().length > 0) {
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            this.selectedIndex =
+              (this.selectedIndex + 1) % this.flatResults().length;
+            this.scrollActive();
+          }
+          if (e.key === "ArrowUp") {
+            e.preventDefault();
+            this.selectedIndex =
+              (this.selectedIndex - 1 + this.flatResults().length) %
+              this.flatResults().length;
+            this.scrollActive();
+          }
+          if (e.key === "Enter" && this.selectedIndex >= 0) {
+            e.preventDefault();
+            window.location.href = this.flatResults()[this.selectedIndex].url;
+            this.open = false;
+            this.selectedIndex = -1;
+          }
+        }
+      },
+
+      scrollActive() {
+        this.$nextTick(() => {
+          const results = this.$el.querySelectorAll("a");
+          const el = results[this.selectedIndex];
+          if (el) el.scrollIntoView({ block: "nearest" });
+        });
+      },
+    }));
+  });
+</script>
