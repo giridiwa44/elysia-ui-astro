@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import { Prism } from '@astrojs/prism'
 import BProgressClient from "../components/BProgressClient.astro";
 export const viewTransition = true;
+import Nav from "@/components/react/Nav";
 
 ---
 
@@ -23,17 +24,17 @@ export const viewTransition = true;
       href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
     />
   </head>
-  <body class="antialiased">
+  <body class="antialiased bg-background text-foreground dark:bg-background dark:text-foreground">
     <div
       id="page-container"
-      class="mx-auto flex min-h-dvh w-full min-w-[320px] flex-col bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+      class="mx-auto flex min-h-dvh w-full min-w-[320px] flex-col bg-gray-100 text-gray-800 dark:bg-background dark:text-gray-200"
     >
       <div id="page-content" class="flex h-full max-w-full flex-auto flex-col">
-        <Navbar />
+        <Nav client:load/>
         <main
-          class="grow bg-white dark:bg-gray-900 pt-[4.5rem] dark:text-gray-100"
+          class="grow bg-white dark:bg-background pt-[3rem] dark:text-gray-100"
         >
-          <div class="bg-white dark:bg-gray-900">
+          <div class="bg-white dark:bg-background">
             <div class="container mx-auto xl:max-w-7xl relative flex">
               <Sidebar />
 			  <div class="max-w-full grow overflow-hidden p-4">

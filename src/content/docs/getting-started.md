@@ -1,7 +1,6 @@
 ---
 title: Getting Started
 
-export const viewTransition = true;
 ---
 
 # Getting Started
